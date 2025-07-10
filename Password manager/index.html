@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SecureX - Personal Password Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Master Password Modal -->
+  <div id="lockscreen">
+    <div class="lock-box">
+      <h2>Enter Master Password</h2>
+      <input type="password" id="master-input" placeholder="Master Password"/>
+      <button onclick="unlock()">Unlock</button>
+    </div>
+  </div>
+
+  <!-- Main App Content -->
+  <nav>
+    <div class="logo">SecureX</div>
+    <ul>
+      <li onclick="resetMaster()">Reset Lock</li>
+    </ul>
+  </nav>
+
+  <div class="container" id="main-content" style="display: none;">
+    <h1>Password Manager</h1>
+    <p>Manage all your credentials in one secure place. Frontend-only for demo.</p>
+
+    <h2>Your Passwords <span id="alert">(Copied!)</span></h2>
+    <table id="password-table">
+      <tr>
+        <th>Website</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Delete</th>
+      </tr>
+    </table>
+
+    <h2>Add a Password</h2>
+    <form>
+      <label for="website">Website:</label>
+      <input type="text" id="website" required /><br><br>
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" required /><br><br>
+
+      <label for="password">Password:</label>
+      <div class="password-input">
+        <input type="password" id="password" required />
+        <button type="button" onclick="toggleVisibility()">👁</button>
+        <button type="button" onclick="generatePassword()">🔄</button>
+      </div>
+      <small id="strength-text">Strength: </small><br><br>
+
+      <button class="btn" type="submit">Save Password</button>
+    </form>
+  </div>
+
+  <script src="password.js"></script>
+</body>
+</html>
